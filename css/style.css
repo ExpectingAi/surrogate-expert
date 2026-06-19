@@ -2,19 +2,19 @@
 
 /* ─── TOKENS ─────────────────────────────────────────── */
 :root {
-  --pink:       #E0577B;
-  --pink-dark:  #C23F61;
-  --pink-deep:  #8C2E4A;
-  --blush:      #F9D8DF;
-  --blush-pale: #FDF1F3;
-  --rose:       #E0577B;
-  --rose-dark:  #C23F61;
-  --cream:      #FFFBF8;
-  --cream-warm: #FCEEF0;
-  --sand:       #F5DCE2;
-  --text:       #3A1E28;
-  --text-mid:   #7A5560;
-  --text-soft:  #B08A95;
+  --pink:       #6B5F9E;
+  --pink-dark:  #564C82;
+  --pink-deep:  #3D3568;
+  --blush:      #E4DFF2;
+  --blush-pale: #F3F0FA;
+  --rose:       #5B7E9E;
+  --rose-dark:  #4A6885;
+  --cream:      #FFFFFF;
+  --cream-warm: #F6F4FB;
+  --sand:       #E8E4F2;
+  --text:       #2B2640;
+  --text-mid:   #6B6485;
+  --text-soft:  #A39EBC;
   --white:      #FFFFFF;
 
   --ff-display: 'Fraunces', Georgia, serif;
@@ -115,7 +115,7 @@ body {
   background: var(--white);
   border: 1px solid var(--sand);
   border-radius: var(--radius-lg);
-  box-shadow: 0 8px 32px rgba(140,46,74,0.10);
+  box-shadow: 0 8px 32px rgba(61,53,104,0.10);
   padding: 0.75rem 0;
   opacity: 0;
   visibility: hidden;
@@ -281,7 +281,7 @@ body {
   color: var(--white);
   border-color: var(--rose);
 }
-.btn-primary:hover { background: var(--rose-dark); border-color: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(224,87,123,0.3); }
+.btn-primary:hover { background: var(--rose-dark); border-color: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(91,126,158,0.3); }
 .btn-secondary {
   background: transparent;
   color: var(--pink);
@@ -318,7 +318,7 @@ body {
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 1rem 1.5rem;
-  box-shadow: 0 4px 24px rgba(140,46,74,0.12);
+  box-shadow: 0 4px 24px rgba(61,53,104,0.12);
   min-width: 180px;
 }
 .hero-stat-n {
@@ -429,7 +429,7 @@ body {
   border: 1px solid var(--sand);
   transition: box-shadow 0.2s, transform 0.2s;
 }
-.why-card:hover { box-shadow: 0 8px 32px rgba(140,46,74,0.08); transform: translateY(-3px); }
+.why-card:hover { box-shadow: 0 8px 32px rgba(61,53,104,0.08); transform: translateY(-3px); }
 .why-icon {
   width: 44px; height: 44px;
   border-radius: 10px;
@@ -568,7 +568,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(140,46,74,0.55) 0%, rgba(140,46,74,0.92) 100%);
+  background: linear-gradient(180deg, rgba(61,53,104,0.55) 0%, rgba(61,53,104,0.92) 100%);
 }
 .cta-banner > * { position: relative; z-index: 1; }
 .cta-banner h2 {
@@ -612,7 +612,7 @@ body {
   margin-bottom: 0.75rem;
 }
 .footer-brand-name span { color: var(--blush); }
-.footer-tagline { font-size: 0.9rem; line-height: 1.6; color: rgba(249,216,223,0.7); max-width: 260px; }
+.footer-tagline { font-size: 0.9rem; line-height: 1.6; color: rgba(228,223,242,0.7); max-width: 260px; }
 .footer-col h4 {
   font-size: 0.75rem;
   font-weight: 600;
@@ -622,7 +622,7 @@ body {
   margin-bottom: 1rem;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.footer-col a { font-size: 0.9rem; color: rgba(249,216,223,0.75); transition: color 0.15s; }
+.footer-col a { font-size: 0.9rem; color: rgba(228,223,242,0.75); transition: color 0.15s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom {
   display: flex;
@@ -631,9 +631,9 @@ body {
   gap: 1rem;
   flex-wrap: wrap;
   font-size: 0.8rem;
-  color: rgba(249,216,223,0.5);
+  color: rgba(228,223,242,0.5);
 }
-.footer-bottom a { color: rgba(249,216,223,0.5); }
+.footer-bottom a { color: rgba(228,223,242,0.5); }
 .footer-bottom a:hover { color: var(--blush); }
 
 /* ─── INNER PAGE HERO ────────────────────────────────── */
