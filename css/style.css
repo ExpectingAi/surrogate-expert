@@ -299,6 +299,8 @@ body {
 /* ─── HERO IMAGE SIDE ────────────────────────────────── */
 .hero-visual {
   position: relative;
+  max-width: 380px;
+  margin-left: auto;
 }
 .hero-image-wrap {
   border-radius: 2rem 2rem 8rem 2rem;
@@ -317,13 +319,13 @@ body {
   left: 1.25rem;
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 1rem 1.5rem;
+  padding: 0.85rem 1.25rem;
   box-shadow: 0 4px 24px rgba(61,53,104,0.12);
-  min-width: 180px;
+  min-width: 160px;
 }
 .hero-stat-n {
   font-family: var(--ff-display);
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: var(--pink);
   font-variation-settings: 'opsz' 32;
