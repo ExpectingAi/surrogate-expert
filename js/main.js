@@ -1,6 +1,6 @@
 // Canonical navigation
 // Keeps the desktop, mobile, and footer menus identical across every page without using an absolute domain.
-// Footer layout v5: five balanced desktop columns, responsive tablet/mobile stacking.
+// Footer layout v6: force mobile footer to one column and prevent horizontal overflow.
 const navItems = [
   {
     label: 'Learn',
@@ -88,6 +88,25 @@ const currentPath = window.location.pathname.replace(/\/$/, '');
 const isActive = path => currentPath.includes(`/${path.replace(/\/$/, '')}`);
 const chevronSvg = '<svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4"/></svg>';
 
+function injectMobileOverflowFixes() {
+  if (document.getElementById('se-mobile-overflow-fixes')) return;
+  const style = document.createElement('style');
+  style.id = 'se-mobile-overflow-fixes';
+  style.textContent = `
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .site-footer, .footer-inner, .footer-top, .footer-col, .footer-brand-col, .footer-section, .footer-bottom { min-width: 0; max-width: 100%; }
+    .site-footer a, .site-footer p, .site-footer h4, .footer-brand-name { overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .site-footer { padding-left: 1.25rem !important; padding-right: 1.25rem !important; overflow-x: hidden !important; }
+      .site-footer .footer-top { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 2rem !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
+      .site-footer .footer-brand-col, .site-footer .footer-col { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+      .site-footer .footer-section-nested { margin-top: 1.75rem !important; }
+      .site-footer .footer-bottom { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 0.65rem !important; width: 100% !important; }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function renderDesktopNav() {
   const navLinks = document.querySelector('.nav-links');
   if (!navLinks) return;
@@ -133,19 +152,36 @@ function footerSection(title, items, isNested = false) {
   return `<div class="footer-section${isNested ? ' footer-section-nested' : ''}"${nestedStyle}><h4>${title}</h4>${footerList(items)}</div>`;
 }
 
+function setImportantStyle(el, property, value) {
+  el.style.setProperty(property, value, 'important');
+}
+
 function applyFooterResponsiveLayout() {
+  const width = window.innerWidth || document.documentElement.clientWidth;
+  document.documentElement.style.overflowX = 'hidden';
+  document.body.style.overflowX = 'hidden';
+
   document.querySelectorAll('.site-footer .footer-top').forEach(footerTop => {
-    const width = window.innerWidth;
+    setImportantStyle(footerTop, 'display', 'grid');
+    setImportantStyle(footerTop, 'width', '100%');
+    setImportantStyle(footerTop, 'max-width', '100%');
+    setImportantStyle(footerTop, 'overflow-x', 'hidden');
+
     if (width <= 640) {
-      footerTop.style.gridTemplateColumns = '1fr';
-      footerTop.style.gap = '2.25rem';
+      setImportantStyle(footerTop, 'grid-template-columns', 'minmax(0, 1fr)');
+      setImportantStyle(footerTop, 'gap', '2rem');
     } else if (width <= 980) {
-      footerTop.style.gridTemplateColumns = '1fr 1fr';
-      footerTop.style.gap = '2.5rem';
+      setImportantStyle(footerTop, 'grid-template-columns', 'minmax(0, 1fr) minmax(0, 1fr)');
+      setImportantStyle(footerTop, 'gap', '2.5rem');
     } else {
-      footerTop.style.gridTemplateColumns = '1.8fr 1fr 1.05fr 1fr 1fr';
-      footerTop.style.gap = '2.6rem';
+      setImportantStyle(footerTop, 'grid-template-columns', '1.8fr 1fr 1.05fr 1fr 1fr');
+      setImportantStyle(footerTop, 'gap', '2.6rem');
     }
+  });
+
+  document.querySelectorAll('.site-footer .footer-brand-col, .site-footer .footer-col, .site-footer .footer-section').forEach(col => {
+    setImportantStyle(col, 'min-width', '0');
+    setImportantStyle(col, 'max-width', '100%');
   });
 }
 
@@ -196,10 +232,12 @@ function renderFooter() {
   });
 }
 
+injectMobileOverflowFixes();
 renderDesktopNav();
 renderMobileNav();
 renderFooter();
 window.addEventListener('resize', applyFooterResponsiveLayout);
+window.addEventListener('orientationchange', () => setTimeout(applyFooterResponsiveLayout, 100));
 
 // Mobile nav
 const hamburger = document.getElementById('nav-hamburger');
