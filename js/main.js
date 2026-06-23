@@ -1,65 +1,75 @@
 // Canonical navigation
 // Keeps the desktop and mobile menus identical across every static page.
 (() => {
+  const scriptUrl = document.currentScript?.src || '';
+  const siteRoot = scriptUrl ? new URL('../', scriptUrl) : new URL('./', window.location.href);
+
+  const toHref = (path) => new URL(path.replace(/^\/+/, ''), siteRoot).pathname;
+  const navPath = (path) => '/' + path.replace(/^\/+/, '').replace(/index\.html$/, '').replace(/\/+$/, '') + (path && !path.endsWith('/') ? '/' : '');
+
   const navItems = [
     {
       label: 'Learn',
       dropdownLabel: 'Understanding Surrogacy',
       items: [
-        ['What Is Surrogacy?', '/what-is-surrogacy/'],
-        ['Medical Guide', '/medical-guide-for-surrogates/'],
-        ['Legal Considerations', '/legal-considerations/'],
-        ['Laws by State', '/surrogacy-laws-by-state/'],
-        ['Surrogacy Risks', '/surrogacy-risks/'],
-        ['FAQ & Glossary', '/faq-glossary/']
+        ['What Is Surrogacy?', 'what-is-surrogacy/'],
+        ['Medical Guide', 'medical-guide-for-surrogates/'],
+        ['Legal Considerations', 'legal-considerations/'],
+        ['Laws by State', 'surrogacy-laws-by-state/'],
+        ['Surrogacy Risks', 'surrogacy-risks/'],
+        ['FAQ & Glossary', 'faq-glossary/']
       ]
     },
     {
       label: 'Your Journey',
       dropdownLabel: 'The Surrogacy Process',
       items: [
-        ['Becoming a Surrogate', '/becoming-a-surrogate/'],
-        ['Requirements', '/surrogate-requirements/'],
-        ['Process & Timeline', '/the-surrogacy-process-timeline/'],
-        ['Compensation', '/surrogate-compensation/'],
-        ['How Agencies Pay', '/how-agencies-pay-surrogates/'],
-        ['Matching', '/matching-what-to-expect/'],
-        ['Life During & After', '/life-during-after-surrogacy/']
+        ['Becoming a Surrogate', 'becoming-a-surrogate/'],
+        ['Requirements', 'surrogate-requirements/'],
+        ['Process & Timeline', 'the-surrogacy-process-timeline/'],
+        ['Compensation', 'surrogate-compensation/'],
+        ['How Agencies Pay', 'how-agencies-pay-surrogates/'],
+        ['Matching', 'matching-what-to-expect/'],
+        ['Life During & After', 'life-during-after-surrogacy/']
       ]
     },
     {
       label: 'Medical',
       dropdownLabel: 'Medical Know-How',
       items: [
-        ['Surrogacy & IVF', '/surrogacy-ivf/'],
-        ['Surrogate Pregnancy', '/surrogate-pregnancy/'],
-        ['Health Insurance', '/health-insurance-for-surrogates/']
+        ['Surrogacy & IVF', 'surrogacy-ivf/'],
+        ['Surrogate Pregnancy', 'surrogate-pregnancy/'],
+        ['Health Insurance', 'health-insurance-for-surrogates/']
       ]
     },
     {
       label: 'Your Family',
       dropdownLabel: 'Family & Support',
       items: [
-        ['Your Support Person', '/your-surrogate-support-person/'],
-        ['Talking to Your Kids', '/sharing-surrogacy-with-your-children/'],
-        ['Single Surrogates', '/being-a-single-surrogate/'],
-        ['Choosing an Agency', '/choosing-a-surrogacy-agency/']
+        ['Your Support Person', 'your-surrogate-support-person/'],
+        ['Talking to Your Kids', 'sharing-surrogacy-with-your-children/'],
+        ['Single Surrogates', 'being-a-single-surrogate/'],
+        ['Choosing an Agency', 'choosing-a-surrogacy-agency/']
       ]
     }
   ];
 
   const normalizePath = (path) => {
-    const normalized = path.replace(/index\.html$/, '').replace(/\/+$/, '/');
+    const rootPath = siteRoot.pathname.replace(/\/+$/, '/');
+    let normalized = path.replace(/index\.html$/, '').replace(/\/+$/, '/');
+    if (normalized.startsWith(rootPath)) normalized = normalized.slice(rootPath.length - 1);
     return normalized === '' ? '/' : normalized;
   };
 
   const currentPath = normalizePath(window.location.pathname);
-  const isActive = (href) => {
-    if (currentPath === href) return true;
-    return href === '/surrogacy-laws-by-state/' && currentPath.startsWith('/surrogacy-laws/');
+  const isActive = (path) => {
+    const hrefPath = navPath(path);
+    if (currentPath === hrefPath) return true;
+    return hrefPath === '/surrogacy-laws-by-state/' && currentPath.startsWith('/surrogacy-laws/');
   };
 
   const chevron = '<svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><polyline points="2,4 6,8 10,4"/></svg>';
+  const linkAttrs = (path, extra = '') => `href="${toHref(path)}"${isActive(path) ? ' class="active"' : extra ? ` class="${extra}"` : ''}`;
 
   const buildDesktopLinks = () => {
     const dropdowns = navItems.map((group) => `
@@ -70,15 +80,15 @@
         </button>
         <div class="nav-dropdown" role="menu">
           <div class="nav-dropdown-label">${group.dropdownLabel}</div>
-          ${group.items.map(([label, href]) => `<a href="${href}" role="menuitem"${isActive(href) ? ' class="active"' : ''}>${label}</a>`).join('')}
+          ${group.items.map(([label, path]) => `<a ${linkAttrs(path)} role="menuitem">${label}</a>`).join('')}
         </div>
       </li>
     `).join('');
 
     return `
-      <li><a href="/"${currentPath === '/' ? ' class="active"' : ''}>Home</a></li>
+      <li><a href="${toHref('')}"${currentPath === '/' ? ' class="active"' : ''}>Home</a></li>
       ${dropdowns}
-      <li><a href="/about-us/"${currentPath === '/about-us/' ? ' class="active"' : ''}>About</a></li>
+      <li><a ${linkAttrs('about-us/')}>About</a></li>
     `;
   };
 
@@ -86,15 +96,15 @@
     const sections = navItems.map((group) => `
       <div class="nav-mobile-section">
         <div class="nav-mobile-label">${group.label}</div>
-        ${group.items.map(([label, href]) => `<a href="${href}"${isActive(href) ? ' class="active"' : ''}>${label}</a>`).join('')}
+        ${group.items.map(([label, path]) => `<a ${linkAttrs(path)}>${label}</a>`).join('')}
       </div>
     `).join('');
 
     return `
-      <a href="/"${currentPath === '/' ? ' class="active"' : ''}>Home</a>
+      <a href="${toHref('')}"${currentPath === '/' ? ' class="active"' : ''}>Home</a>
       ${sections}
-      <a href="/about-us/"${currentPath === '/about-us/' ? ' class="active"' : ''}>About</a>
-      <a href="/get-started/" class="nav-mobile-cta">Get Started</a>
+      <a ${linkAttrs('about-us/')}>About</a>
+      <a href="${toHref('get-started/')}" class="nav-mobile-cta">Get Started</a>
     `;
   };
 
@@ -104,9 +114,9 @@
 
   if (navInner) {
     navInner.innerHTML = `
-      <a href="/" class="nav-logo">Surrogacy<span>Expert</span></a>
+      <a href="${toHref('')}" class="nav-logo">Surrogacy<span>Expert</span></a>
       <ul class="nav-links" role="list">${buildDesktopLinks()}</ul>
-      <a href="/get-started/" class="nav-cta">Get Started</a>
+      <a href="${toHref('get-started/')}" class="nav-cta">Get Started</a>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/>
