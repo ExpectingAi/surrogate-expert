@@ -223,7 +223,17 @@
       <div class="mf-field"><label for="ms-phone">Phone number <span class="req">*</span></label><input type="tel" id="ms-phone" autocomplete="tel" placeholder="(555) 000-0000"></div>
       <div class="mf-field">
         <label for="ms-state">State of residence <span class="req">*</span></label>
-        <div class="select-wrap"><select id="ms-state"><option value="">Select your state</option><option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>District of Columbia</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option></select></div>
+        <div class="select-wrap">
+          <select id="ms-state">
+            <option value="">Select your location</option>
+            <optgroup label="United States">
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>District of Columbia</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="Outside the United States">Outside the United States</option>
+            </optgroup>
+          </select>
+        </div>
       </div>
       <div class="mf-field">
         <label for="ms-contact">Best way to contact you <span class="req">*</span></label>
@@ -400,7 +410,6 @@ function msGo3() {
   const qs = ['q-birth','q-citizen','q-livesinus','q-nicotine','q-drugs','q-govt'];
   if(!msVal('ms-age')||isNaN(age)) { msShowErr('err2','Please enter your age.'); return; }
   for(const q of qs) { if(!msGet(q)) { msShowErr('err2','Please answer all questions before continuing.'); return; } }
-  // Hard disqualifications
   if(age<21||age>44) { msThankyou('disq'); return; }
   if(msGet('q-birth')==='No') { msThankyou('disq'); return; }
   if(msGet('q-citizen')==='No') { msThankyou('disq'); return; }
@@ -441,7 +450,7 @@ function msThankyou(status) {
   document.getElementById('progressWrap').style.display='none';
   document.getElementById('ty-'+status).classList.add('active');
   document.getElementById('progressFill').style.width='100%';
-  window.scrollTo({top: document.getElementById('ms-card') ? document.getElementById('ms-card').getBoundingClientRect().top + window.scrollY - 80 : 0, behavior:'smooth'});
+  window.scrollTo({top: 0, behavior:'smooth'});
 }
 </script>
 </body>
