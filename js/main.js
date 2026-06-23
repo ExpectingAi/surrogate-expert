@@ -1,3 +1,9 @@
+// Ensure the logo always returns to the active GitHub Pages homepage, not the old custom domain
+const siteHomeUrl = 'https://expectingai.github.io/surrogacy-expert/';
+document.querySelectorAll('.nav-logo').forEach(link => {
+  link.setAttribute('href', siteHomeUrl);
+});
+
 // Mobile nav
 const hamburger = document.getElementById('nav-hamburger');
 const mobileNav = document.getElementById('nav-mobile');
