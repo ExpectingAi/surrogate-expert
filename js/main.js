@@ -116,8 +116,20 @@ function renderMobileNav() {
   `;
 }
 
+function normalizeFooter() {
+  document.querySelectorAll('.footer-bottom span:first-child').forEach(el => {
+    el.textContent = '© 2026 Surrogacy Expert';
+  });
+
+  document.querySelectorAll('.site-footer a[href^="mailto:"]').forEach(link => {
+    link.setAttribute('href', hrefFor('get-started/'));
+    link.textContent = 'Contact';
+  });
+}
+
 renderDesktopNav();
 renderMobileNav();
+normalizeFooter();
 
 // Mobile nav
 const hamburger = document.getElementById('nav-hamburger');
