@@ -1,3 +1,12 @@
+// Keep logo pointing to the current deployment root, not a hard-coded custom domain
+const currentScript = document.currentScript || document.querySelector('script[src$="js/main.js"], script[src$="/main.js"]');
+if (currentScript && currentScript.src) {
+  const siteRoot = new URL('../', currentScript.src).href;
+  document.querySelectorAll('.nav-logo').forEach(logo => {
+    logo.setAttribute('href', siteRoot);
+  });
+}
+
 // Mobile nav
 const hamburger = document.getElementById('nav-hamburger');
 const mobileNav = document.getElementById('nav-mobile');
