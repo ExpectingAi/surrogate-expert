@@ -117,8 +117,13 @@ function renderMobileNav() {
 }
 
 function normalizeFooter() {
-  document.querySelectorAll('.footer-bottom span:first-child').forEach(el => {
-    el.textContent = '© 2026 Surrogacy Expert';
+  const footerBottomHtml = `
+    <span>© 2026 Surrogacy Expert</span>
+    <span><a href="${hrefFor('privacy-policy/')}">Privacy Policy</a> · <a href="${hrefFor('terms/')}">Terms of Use</a></span>
+  `;
+
+  document.querySelectorAll('.footer-bottom').forEach(footer => {
+    footer.innerHTML = footerBottomHtml;
   });
 
   document.querySelectorAll('.site-footer a[href^="mailto:"]').forEach(link => {
