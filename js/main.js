@@ -1,5 +1,5 @@
 // Canonical navigation
-// Keeps the desktop and mobile menus identical across every page without using an absolute domain.
+// Keeps the desktop, mobile, and footer menus identical across every page without using an absolute domain.
 const navItems = [
   {
     label: 'Learn',
@@ -116,7 +116,35 @@ function renderMobileNav() {
   `;
 }
 
-function normalizeFooter() {
+function renderFooter() {
+  const footerTopHtml = `
+    <div>
+      <div class="footer-brand-name">Surrogacy<span>Expert</span></div>
+      <p class="footer-tagline">Clear, judgment-free guidance for women considering becoming a gestational surrogate.</p>
+    </div>
+    ${navItems.map(group => `
+      <div class="footer-col">
+        <h4>${group.label}</h4>
+        <ul>
+          ${group.items.map(([path, label]) => `<li><a href="${hrefFor(path)}">${label}</a></li>`).join('')}
+        </ul>
+      </div>
+    `).join('')}
+    <div class="footer-col">
+      <h4>Site</h4>
+      <ul>
+        <li><a href="${hrefFor('about-us/')}">About</a></li>
+        <li><a href="${hrefFor('get-started/')}">Get Started</a></li>
+        <li><a href="${hrefFor('privacy-policy/')}">Privacy Policy</a></li>
+        <li><a href="${hrefFor('terms/')}">Terms of Use</a></li>
+      </ul>
+    </div>
+  `;
+
+  document.querySelectorAll('.site-footer .footer-top').forEach(footerTop => {
+    footerTop.innerHTML = footerTopHtml;
+  });
+
   const footerBottomHtml = `
     <span>© 2026 Surrogacy Expert</span>
     <span><a href="${hrefFor('privacy-policy/')}">Privacy Policy</a> · <a href="${hrefFor('terms/')}">Terms of Use</a></span>
@@ -134,7 +162,7 @@ function normalizeFooter() {
 
 renderDesktopNav();
 renderMobileNav();
-normalizeFooter();
+renderFooter();
 
 // Mobile nav
 const hamburger = document.getElementById('nav-hamburger');
