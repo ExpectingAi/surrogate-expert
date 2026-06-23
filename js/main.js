@@ -1,6 +1,6 @@
 // Canonical navigation
 // Keeps the desktop, mobile, and footer menus identical across every page without using an absolute domain.
-// Footer layout v4: five balanced desktop columns with Family/Site grouped in the final column.
+// Footer layout v5: five balanced desktop columns, responsive tablet/mobile stacking.
 const navItems = [
   {
     label: 'Learn',
@@ -133,6 +133,22 @@ function footerSection(title, items, isNested = false) {
   return `<div class="footer-section${isNested ? ' footer-section-nested' : ''}"${nestedStyle}><h4>${title}</h4>${footerList(items)}</div>`;
 }
 
+function applyFooterResponsiveLayout() {
+  document.querySelectorAll('.site-footer .footer-top').forEach(footerTop => {
+    const width = window.innerWidth;
+    if (width <= 640) {
+      footerTop.style.gridTemplateColumns = '1fr';
+      footerTop.style.gap = '2.25rem';
+    } else if (width <= 980) {
+      footerTop.style.gridTemplateColumns = '1fr 1fr';
+      footerTop.style.gap = '2.5rem';
+    } else {
+      footerTop.style.gridTemplateColumns = '1.8fr 1fr 1.05fr 1fr 1fr';
+      footerTop.style.gap = '2.6rem';
+    }
+  });
+}
+
 function renderFooter() {
   const learnGroup = navItems.find(group => group.label === 'Learn');
   const journeyGroup = navItems.find(group => group.label === 'Your Journey');
@@ -161,9 +177,9 @@ function renderFooter() {
 
   document.querySelectorAll('.site-footer .footer-top').forEach(footerTop => {
     footerTop.innerHTML = footerTopHtml;
-    footerTop.style.gridTemplateColumns = '1.8fr 1fr 1.05fr 1fr 1fr';
-    footerTop.style.gap = '2.6rem';
   });
+
+  applyFooterResponsiveLayout();
 
   const footerBottomHtml = `
     <span>© 2026 Surrogacy Expert</span>
@@ -183,6 +199,7 @@ function renderFooter() {
 renderDesktopNav();
 renderMobileNav();
 renderFooter();
+window.addEventListener('resize', applyFooterResponsiveLayout);
 
 // Mobile nav
 const hamburger = document.getElementById('nav-hamburger');
