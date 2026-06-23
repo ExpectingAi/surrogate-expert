@@ -1,5 +1,6 @@
 // Canonical navigation
 // Keeps the desktop, mobile, and footer menus identical across every page without using an absolute domain.
+// Footer layout v2: stacked groups are rendered inside their parent desktop columns.
 const navItems = [
   {
     label: 'Learn',
@@ -127,6 +128,10 @@ function footerList(items) {
   return `<ul>${items.map(([path, label]) => `<li><a href="${hrefFor(path)}">${label}</a></li>`).join('')}</ul>`;
 }
 
+function footerSection(title, items) {
+  return `<div class="footer-section"><h4>${title}</h4>${footerList(items)}</div>`;
+}
+
 function renderFooter() {
   const learnGroup = navItems.find(group => group.label === 'Learn');
   const journeyGroup = navItems.find(group => group.label === 'Your Journey');
@@ -134,25 +139,20 @@ function renderFooter() {
   const familyGroup = navItems.find(group => group.label === 'Your Family');
 
   const footerTopHtml = `
-    <div>
+    <div class="footer-brand-col">
       <div class="footer-brand-name">Surrogacy<span>Expert</span></div>
       <p class="footer-tagline">Clear, judgment-free guidance for women considering becoming a gestational surrogate.</p>
     </div>
-    <div class="footer-col">
-      <h4>${learnGroup.label}</h4>
-      ${footerList(learnGroup.items)}
-      <h4>${familyGroup.label}</h4>
-      ${footerList(familyGroup.items)}
+    <div class="footer-col footer-col-stacked">
+      ${footerSection(learnGroup.label, learnGroup.items)}
+      ${footerSection(familyGroup.label, familyGroup.items)}
+    </div>
+    <div class="footer-col footer-col-stacked">
+      ${footerSection(journeyGroup.label, journeyGroup.items)}
+      ${footerSection('Site', siteItems)}
     </div>
     <div class="footer-col">
-      <h4>${journeyGroup.label}</h4>
-      ${footerList(journeyGroup.items)}
-      <h4>Site</h4>
-      ${footerList(siteItems)}
-    </div>
-    <div class="footer-col">
-      <h4>${medicalGroup.label}</h4>
-      ${footerList(medicalGroup.items)}
+      ${footerSection(medicalGroup.label, medicalGroup.items)}
     </div>
   `;
 
