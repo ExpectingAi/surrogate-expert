@@ -47,6 +47,13 @@ const navItems = [
   }
 ];
 
+const siteItems = [
+  ['about-us/', 'About'],
+  ['get-started/', 'Get Started'],
+  ['privacy-policy/', 'Privacy Policy'],
+  ['terms/', 'Terms of Use']
+];
+
 function getRelativePrefix() {
   let basePath = '/';
   const script = document.currentScript || Array.from(document.scripts).find(s => s.src && s.src.includes('/js/main.js'));
@@ -116,28 +123,36 @@ function renderMobileNav() {
   `;
 }
 
+function footerList(items) {
+  return `<ul>${items.map(([path, label]) => `<li><a href="${hrefFor(path)}">${label}</a></li>`).join('')}</ul>`;
+}
+
 function renderFooter() {
+  const learnGroup = navItems.find(group => group.label === 'Learn');
+  const journeyGroup = navItems.find(group => group.label === 'Your Journey');
+  const medicalGroup = navItems.find(group => group.label === 'Medical');
+  const familyGroup = navItems.find(group => group.label === 'Your Family');
+
   const footerTopHtml = `
     <div>
       <div class="footer-brand-name">Surrogacy<span>Expert</span></div>
       <p class="footer-tagline">Clear, judgment-free guidance for women considering becoming a gestational surrogate.</p>
     </div>
-    ${navItems.map(group => `
-      <div class="footer-col">
-        <h4>${group.label}</h4>
-        <ul>
-          ${group.items.map(([path, label]) => `<li><a href="${hrefFor(path)}">${label}</a></li>`).join('')}
-        </ul>
-      </div>
-    `).join('')}
     <div class="footer-col">
+      <h4>${learnGroup.label}</h4>
+      ${footerList(learnGroup.items)}
+      <h4>${familyGroup.label}</h4>
+      ${footerList(familyGroup.items)}
+    </div>
+    <div class="footer-col">
+      <h4>${journeyGroup.label}</h4>
+      ${footerList(journeyGroup.items)}
       <h4>Site</h4>
-      <ul>
-        <li><a href="${hrefFor('about-us/')}">About</a></li>
-        <li><a href="${hrefFor('get-started/')}">Get Started</a></li>
-        <li><a href="${hrefFor('privacy-policy/')}">Privacy Policy</a></li>
-        <li><a href="${hrefFor('terms/')}">Terms of Use</a></li>
-      </ul>
+      ${footerList(siteItems)}
+    </div>
+    <div class="footer-col">
+      <h4>${medicalGroup.label}</h4>
+      ${footerList(medicalGroup.items)}
     </div>
   `;
 
