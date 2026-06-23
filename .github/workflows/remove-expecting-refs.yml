@@ -1,0 +1,83 @@
+name: Remove Expecting references
+
+on:
+  push:
+    paths:
+      - .github/workflows/remove-expecting-refs.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  remove-expecting-refs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply HTML replacements
+        shell: bash
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          footer_old = '© 2026 Surrogacy Expert · Powered by <a href="https://expecting.ai" target="_blank" rel="noopener">Expecting.Ai</a>'
+          footer_new = '© 2026 Surrogacy Expert'
+
+          about_old = '''<h2>Part of the Expecting.Ai family</h2>
+          <p>Surrogacy Expert is built and supported by Expecting.Ai, a fertility platform connecting intended parents, surrogates, and egg donors through thoughtful technology and real human support.</p>'''
+          about_new = '''<h2>Get in touch</h2>
+          <p>Have a question or want to learn more? Reach us at <a href="mailto:contact@surrogacy.expert">contact@surrogacy.expert</a> — we're happy to help.</p>'''
+
+          index_parent_email_pattern = re.compile(
+              r',\s*"parentOrganization"\s*:\s*\{\s*"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*"Expecting\.Ai"\s*,\s*"url"\s*:\s*"https://expecting\.ai"\s*\}\s*,\s*"email"\s*:\s*"info@expecting\.ai"',
+              re.S,
+          )
+
+          changed = []
+          html_files = sorted(Path('.').rglob('*.html'))
+          print(f'Found {len(html_files)} HTML files')
+
+          for path in html_files:
+              text = path.read_text(encoding='utf-8')
+              original = text
+
+              text = text.replace(footer_old, footer_new)
+              text = text.replace('mailto:info@expecting.ai', 'mailto:contact@surrogacy.expert')
+
+              if path.as_posix() == 'about-us/index.html':
+                  text = text.replace(about_old, about_new)
+
+              if path.as_posix() == 'index.html':
+                  text = index_parent_email_pattern.sub('', text)
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(path.as_posix())
+
+          print('Changed files:')
+          for p in changed:
+              print(f'- {p}')
+
+          # Remove this one-time workflow from the repo after it has done its job.
+          wf = Path('.github/workflows/remove-expecting-refs.yml')
+          if wf.exists():
+              wf.unlink()
+          PY
+
+      - name: Commit and push changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Remove all Expecting.Ai references"
+            git push
+          fi
