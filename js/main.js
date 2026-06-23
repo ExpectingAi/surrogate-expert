@@ -1,6 +1,6 @@
 // Canonical navigation
 // Keeps the desktop, mobile, and footer menus identical across every page without using an absolute domain.
-// Footer layout v2: stacked groups are rendered inside their parent desktop columns.
+// Footer layout v3: stacked groups are rendered inside their parent desktop columns with clear nested spacing.
 const navItems = [
   {
     label: 'Learn',
@@ -128,8 +128,9 @@ function footerList(items) {
   return `<ul>${items.map(([path, label]) => `<li><a href="${hrefFor(path)}">${label}</a></li>`).join('')}</ul>`;
 }
 
-function footerSection(title, items) {
-  return `<div class="footer-section"><h4>${title}</h4>${footerList(items)}</div>`;
+function footerSection(title, items, isNested = false) {
+  const nestedStyle = isNested ? ' style="margin-top:1.65rem;"' : '';
+  return `<div class="footer-section${isNested ? ' footer-section-nested' : ''}"${nestedStyle}><h4>${title}</h4>${footerList(items)}</div>`;
 }
 
 function renderFooter() {
@@ -145,11 +146,11 @@ function renderFooter() {
     </div>
     <div class="footer-col footer-col-stacked">
       ${footerSection(learnGroup.label, learnGroup.items)}
-      ${footerSection(familyGroup.label, familyGroup.items)}
+      ${footerSection(familyGroup.label, familyGroup.items, true)}
     </div>
     <div class="footer-col footer-col-stacked">
       ${footerSection(journeyGroup.label, journeyGroup.items)}
-      ${footerSection('Site', siteItems)}
+      ${footerSection('Site', siteItems, true)}
     </div>
     <div class="footer-col">
       ${footerSection(medicalGroup.label, medicalGroup.items)}
