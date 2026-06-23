@@ -1,6 +1,6 @@
 // Canonical navigation
 // Keeps the desktop, mobile, and footer menus identical across every page without using an absolute domain.
-// Footer layout v3: stacked groups are rendered inside their parent desktop columns with clear nested spacing.
+// Footer layout v4: five balanced desktop columns with Family/Site grouped in the final column.
 const navItems = [
   {
     label: 'Learn',
@@ -129,7 +129,7 @@ function footerList(items) {
 }
 
 function footerSection(title, items, isNested = false) {
-  const nestedStyle = isNested ? ' style="margin-top:1.65rem;"' : '';
+  const nestedStyle = isNested ? ' style="margin-top:2.25rem;"' : '';
   return `<div class="footer-section${isNested ? ' footer-section-nested' : ''}"${nestedStyle}><h4>${title}</h4>${footerList(items)}</div>`;
 }
 
@@ -144,21 +144,25 @@ function renderFooter() {
       <div class="footer-brand-name">Surrogacy<span>Expert</span></div>
       <p class="footer-tagline">Clear, judgment-free guidance for women considering becoming a gestational surrogate.</p>
     </div>
-    <div class="footer-col footer-col-stacked">
+    <div class="footer-col">
       ${footerSection(learnGroup.label, learnGroup.items)}
-      ${footerSection(familyGroup.label, familyGroup.items, true)}
     </div>
-    <div class="footer-col footer-col-stacked">
+    <div class="footer-col">
       ${footerSection(journeyGroup.label, journeyGroup.items)}
-      ${footerSection('Site', siteItems, true)}
     </div>
     <div class="footer-col">
       ${footerSection(medicalGroup.label, medicalGroup.items)}
+    </div>
+    <div class="footer-col footer-col-stacked">
+      ${footerSection(familyGroup.label, familyGroup.items)}
+      ${footerSection('Site', siteItems, true)}
     </div>
   `;
 
   document.querySelectorAll('.site-footer .footer-top').forEach(footerTop => {
     footerTop.innerHTML = footerTopHtml;
+    footerTop.style.gridTemplateColumns = '1.8fr 1fr 1.05fr 1fr 1fr';
+    footerTop.style.gap = '2.6rem';
   });
 
   const footerBottomHtml = `
