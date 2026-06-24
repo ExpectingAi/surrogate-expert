@@ -193,7 +193,7 @@ function renderFooter() {
 
   const footerTopHtml = `
     <div class="footer-brand-col">
-      <div class="footer-brand-name">Surrogacy<span>Expert</span></div>
+      <div class="footer-brand-name">Surrogate<span>Expert</span></div>
       <p class="footer-tagline">Clear, judgment-free guidance for women considering becoming a gestational surrogate.</p>
     </div>
     <div class="footer-col">
@@ -218,7 +218,7 @@ function renderFooter() {
   applyFooterResponsiveLayout();
 
   const footerBottomHtml = `
-    <span>© 2026 Surrogacy Expert</span>
+    <span>© 2026 Surrogate Expert</span>
     <span><a href="${hrefFor('privacy-policy/')}">Privacy Policy</a> · <a href="${hrefFor('terms/')}">Terms of Use</a></span>
   `;
 
