@@ -1,1 +1,1 @@
-document.querySelectorAll('.footer-bottom').forEach(function(el){el.innerHTML='<span>© 2026 Surrogacy Expert</span>';});
+document.querySelectorAll('.footer-bottom').forEach(function(el){el.innerHTML='<span>© 2026 Surrogate Expert</span>';});
