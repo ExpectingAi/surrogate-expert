@@ -208,6 +208,7 @@ function renderFooter() {
     <div class="footer-col footer-col-stacked">
       ${footerSection(familyGroup.label, familyGroup.items)}
       ${footerSection('Site', siteItems, true)}
+      <div class="footer-section footer-section-nested" style="margin-top:2.25rem;"><h4>For Intended Parents</h4><ul><li><a href="https://surrogacy.expert/" rel="noopener">Surrogacy.Expert</a></li><li><a href="https://www.expecting.ai/" rel="noopener">Expecting.Ai</a></li></ul></div>
     </div>
   `;
 
