@@ -14,3 +14,4 @@ User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://surrogate.expert/sitemap.xml
+Sitemap: https://surrogate.expert/sitemap-geo.xml
