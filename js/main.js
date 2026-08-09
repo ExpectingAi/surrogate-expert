@@ -49,7 +49,7 @@ const navItems = [
 
 const siteItems = [
   ['about-us/', 'About'],
-  ['get-started/', 'Get Started'],
+  ['get-started/', 'Self-Check'],
   ['privacy-policy/', 'Privacy Policy'],
   ['terms/', 'Terms of Use']
 ];
@@ -110,7 +110,7 @@ function renderDesktopNav() {
       <div class="nav-dropdown" role="menu"><div class="nav-dropdown-label">${group.dropdownLabel}</div>${group.items.map(([path, label]) => `<a href="${hrefFor(path)}" role="menuitem"${isActive(path) ? ' class="active"' : ''}>${label}</a>`).join('')}</div>
     </li>`).join('') + `<li><a href="${hrefFor('about-us/')}"${isActive('about-us/') ? ' class="active"' : ''}>About</a></li>`;
   const navCta = document.querySelector('.nav-cta');
-  if (navCta) navCta.setAttribute('href', hrefFor('get-started/'));
+  if (navCta) { navCta.setAttribute('href', hrefFor('get-started/')); navCta.textContent = 'Self-Check'; }
 }
 
 function renderMobileNav() {
@@ -118,7 +118,7 @@ function renderMobileNav() {
   if (!mobileNav) return;
   mobileNav.innerHTML = navItems.map(group => `<div class="nav-mobile-section"><div class="nav-mobile-label">${group.label}</div>${group.items.map(([path, label]) => `<a href="${hrefFor(path)}"${isActive(path) ? ' class="active"' : ''}>${label}</a>`).join('')}</div>`).join('') + `
     <a href="${hrefFor('about-us/')}" class="nav-mobile-section" style="display:block;padding:0.55rem 0;border-bottom:1px solid var(--sand);">About</a>
-    <a href="${hrefFor('get-started/')}" class="nav-mobile-cta">Get Started</a>`;
+    <a href="${hrefFor('get-started/')}" class="nav-mobile-cta">Self-Check</a>`;
 }
 
 function footerList(items) { return `<ul>${items.map(([path, label]) => `<li><a href="${hrefFor(path)}">${label}</a></li>`).join('')}</ul>`; }
@@ -169,7 +169,6 @@ function renderFooter() {
   applyFooterResponsiveLayout();
   const footerBottomHtml = `<span>© 2026 Surrogate Expert</span><span><a href="${hrefFor('privacy-policy/')}">Privacy Policy</a> · <a href="${hrefFor('terms/')}">Terms of Use</a></span>`;
   document.querySelectorAll('.footer-bottom').forEach(footer => { footer.innerHTML = footerBottomHtml; });
-  document.querySelectorAll('.site-footer a[href^="mailto:"]').forEach(link => { link.setAttribute('href', hrefFor('get-started/')); link.textContent = 'Contact'; });
 }
 
 injectSafetyFixes();
