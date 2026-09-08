@@ -242,3 +242,44 @@ table { max-width: 100%; }
   .step { grid-template-columns: 40px 1fr; gap: 1rem; }
   .step-num { width: 40px; height: 40px; }
 }
+
+
+/* state-recruitment-cta-fix-v1 */
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 1.35rem 0 0;
+}
+.cta-actions .btn {
+  width: auto;
+  min-width: 220px;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.2;
+}
+.prose .cta-actions .btn-primary,
+.prose .cta-actions .btn-primary:visited {
+  color: var(--white);
+  text-decoration: none;
+}
+.prose .cta-actions .btn-secondary,
+.prose .cta-actions .btn-secondary:visited {
+  color: var(--pink);
+  text-decoration: none;
+}
+.page-hero .cta-actions { margin-top: 1.4rem; }
+.page-hero .cta-actions .btn { text-decoration: none; }
+@media (max-width: 640px) {
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+  .cta-actions .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
