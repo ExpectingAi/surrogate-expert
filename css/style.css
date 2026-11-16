@@ -44,7 +44,7 @@ body { font-family: var(--ff-body); font-size: 17px; line-height: 1.75; color: v
 .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .nav-links > li:hover .nav-chevron { transform: rotate(180deg); }
 .nav-dropdown { position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--radius-lg); box-shadow: 0 8px 32px rgba(61,53,104,0.10); padding: 0.75rem 0; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.18s, transform 0.18s, visibility 0.18s; pointer-events: none; }
-.nav-links > li:hover .nav-dropdown, .nav-links > li:focus-within .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+.nav-links > li > button[aria-expanded="true"] + .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
 .nav-dropdown-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); padding: 0.5rem 1.25rem 0.25rem; }
 .nav-dropdown a { display: block; padding: 0.5rem 1.25rem; font-size: 0.9rem; color: var(--text); transition: background 0.12s, color 0.12s; border-radius: 0; }
 .nav-dropdown a:hover { background: var(--blush); color: var(--pink); }
@@ -282,4 +282,38 @@ table { max-width: 100%; }
     width: 100%;
     min-width: 0;
   }
+}
+
+/* Keep button labels legible inside article text and highlight keyboard focus. */
+a.btn, .prose a.btn, .article-body a.btn {
+  text-align: center;
+  text-decoration: none;
+}
+.btn-primary, .prose a.btn-primary, .article-body a.btn-primary,
+.nav-cta, .nav-mobile-cta, .cta-banner .btn-primary {
+  background: var(--rose-dark);
+  border-color: var(--rose-dark);
+  color: var(--white);
+}
+.btn-primary:hover, .prose a.btn-primary:hover, .article-body a.btn-primary:hover,
+.nav-cta:hover, .nav-mobile-cta:hover, .cta-banner .btn-primary:hover {
+  background: #3b546d;
+  border-color: #3b546d;
+  color: var(--white);
+}
+.btn-secondary, .prose a.btn-secondary, .article-body a.btn-secondary {
+  color: var(--pink);
+}
+.btn, .nav-cta, .nav-hamburger, .answer-btn { min-height: 44px; }
+.nav-hamburger {
+  align-items: center;
+  gap: .35rem;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 600;
+}
+:is(.btn, .nav-cta, .nav-hamburger, .nav-mobile-cta, .nav-links button, .faq-q, .answer-btn):focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--rose-dark);
 }
