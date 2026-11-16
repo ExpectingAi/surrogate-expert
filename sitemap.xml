@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://surrogate.expert/</loc><lastmod>2026-11-15</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://surrogate.expert/what-is-surrogacy/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://surrogate.expert/medical-guide-for-surrogates/</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://surrogate.expert/legal-considerations/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://surrogate.expert/medical-guide-for-surrogates/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://surrogate.expert/legal-considerations/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws-by-state/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-risks/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://surrogate.expert/faq-glossary/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://surrogate.expert/becoming-a-surrogate/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://surrogate.expert/surrogate-requirements/</loc><lastmod>2026-09-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://surrogate.expert/surrogate-requirements/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://surrogate.expert/the-surrogacy-process-timeline/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://surrogate.expert/surrogate-compensation/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://surrogate.expert/how-agencies-pay-surrogates/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -23,15 +23,13 @@
   <url><loc>https://surrogate.expert/choosing-a-surrogacy-agency/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/about-us/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/get-started/</loc><lastmod>2026-09-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://surrogate.expert/privacy-policy/</loc><lastmod>2026-08-09</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://surrogate.expert/terms/</loc><lastmod>2026-08-09</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
   <!-- State-law guides reviewed in the 2026-08-09 QA sweep -->
   <url><loc>https://surrogate.expert/surrogacy-laws/alabama/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/alaska/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/arizona/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/arkansas/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://surrogate.expert/surrogacy-laws/california/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://surrogate.expert/surrogacy-laws/california/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/colorado/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/connecticut/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/delaware/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -50,7 +48,7 @@
   <url><loc>https://surrogate.expert/surrogacy-laws/massachusetts/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/michigan/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/minnesota/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://surrogate.expert/surrogacy-laws/mississippi/</loc><lastmod>2026-11-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://surrogate.expert/surrogacy-laws/mississippi/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/missouri/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/montana/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/nebraska/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -78,7 +76,7 @@
   <url><loc>https://surrogate.expert/surrogacy-laws/west-virginia/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/wisconsin/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://surrogate.expert/surrogacy-laws/wyoming/</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://surrogate.expert/become-a-surrogate-in-california/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://surrogate.expert/become-a-surrogate-in-california/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://surrogate.expert/become-a-surrogate-in-texas/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://surrogate.expert/become-a-surrogate-in-florida/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
@@ -132,39 +130,39 @@
   <url><loc>https://surrogate.expert/become-a-surrogate-in-washington/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-alabama/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-alaska/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-arkansas/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-hawaii/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-idaho/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-indiana/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-iowa/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-kansas/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-kentucky/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-louisiana/</loc>
@@ -172,11 +170,11 @@
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-mississippi/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-montana/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-nebraska/</loc>
@@ -184,19 +182,19 @@
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-north-dakota/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-south-carolina/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-south-dakota/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-tennessee/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-utah/</loc>
@@ -212,11 +210,11 @@
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-west-virginia/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://surrogate.expert/become-a-surrogate-in-wyoming/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url><loc>https://surrogate.expert/surrogate-pay-in-california/</loc><lastmod>2026-09-08</lastmod></url>
   <url><loc>https://surrogate.expert/surrogate-pay-in-texas/</loc><lastmod>2026-09-08</lastmod></url>
@@ -225,9 +223,9 @@
   <url><loc>https://surrogate.expert/surrogate-pay-in-illinois/</loc><lastmod>2026-09-08</lastmod></url>
   <url><loc>https://surrogate.expert/surrogate-pay-in-georgia/</loc><lastmod>2026-09-08</lastmod></url>
   <url><loc>https://surrogate.expert/surrogate-pay-in-nevada/</loc><lastmod>2026-09-08</lastmod></url>
-  <url><loc>https://surrogate.expert/surrogate-pay-in-washington/</loc><lastmod>2026-09-08</lastmod></url>
-  <url><loc>https://surrogate.expert/surrogate-pay-in-colorado/</loc><lastmod>2026-09-08</lastmod></url>
-  <url><loc>https://surrogate.expert/surrogate-pay-in-new-jersey/</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://surrogate.expert/surrogate-pay-in-washington/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://surrogate.expert/surrogate-pay-in-colorado/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://surrogate.expert/surrogate-pay-in-new-jersey/</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://surrogate.expert/surrogate-pay-in-alabama/</loc><lastmod>2026-09-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://surrogate.expert/surrogate-pay-in-alaska/</loc><lastmod>2026-09-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://surrogate.expert/surrogate-pay-in-arizona/</loc><lastmod>2026-09-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
